@@ -60,7 +60,7 @@ void batu (float titikA1, float titikB1, float titikA2, float titikB2, float tit
 	glEnd();
 }
 void garistembok (float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4, float titikA5, float titikB5, float titikA6, float titikB6){
-    glLineWidth(4);
+    glLineWidth(5);
     glBegin(GL_LINE_STRIP);
 
     glVertex2f(titikA1, titikB1);
@@ -103,6 +103,11 @@ void pagar(){
 void bata(){
     glColor3ub(40,200,200);
     segidelapan(5,0, 35,0, 40,5, 40,35, 35,40, 5,40, 0,35, 0,5);
+}
+
+void lantai2(){
+    glColor3ub(150,210,210);
+    segidelapan(175,130, 265,130, 270,135, 270,345, 265,350, 175,350, 170,345, 170,135);
 }
 //void temboktengah(){
     //glColor3ub(40,200,200);
@@ -310,6 +315,10 @@ void rangkai(){
         bata();
     glPopMatrix();
     //
+    glPushMatrix();
+        glTranslatef(160,160,0);
+        bata();
+    glPopMatrix();
 
     glPushMatrix();
         glTranslatef(160,200,0);
@@ -328,6 +337,11 @@ void rangkai(){
 
     glPushMatrix();
         glTranslatef(160,320,0);
+        bata();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(200,320,0);
         bata();
     glPopMatrix();
 
@@ -408,6 +422,10 @@ void rangkai(){
     glPushMatrix();
         glTranslatef(440,200,0);
         bata();
+    glPopMatrix();
+    //lantai 2
+    glPushMatrix();
+        lantai2();
     glPopMatrix();
 
 }
