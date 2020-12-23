@@ -4,7 +4,7 @@
 	<GL/glu.h>
 	<GL/glut.h>
 
-881782880 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
+881786480 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -218,4 +218,9 @@
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
 	<stddef.h>
 	<GL/gl.h>
+
+1608736286 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-character-baru\main.cpp
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/glut.h>
 

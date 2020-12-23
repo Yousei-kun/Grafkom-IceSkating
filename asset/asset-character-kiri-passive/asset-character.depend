@@ -2,7 +2,7 @@
 1608169130 source:e:\semester 3\grafkom\projek\grafkom-iceskating\grafkom-iceskating\asset\asset-character\main.cpp
 	<GL/glut.h>
 
-881782880 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
+881786480 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -216,4 +216,10 @@
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
 	<stddef.h>
 	<GL/gl.h>
+
+1607419217 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-character\main.cpp
+	<GL/glut.h>
+
+1607419217 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-character-kiri-passive\main.cpp
+	<GL/glut.h>
 

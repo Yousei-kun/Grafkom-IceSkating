@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1608532563 source:c:\users\bima\documents\code goblog\project\main.cpp
+1608738638 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-character-kanan-passive\main.cpp
+	<GL/glut.h>
+
+881786480 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
+	<GL/gl.h>
+	<GL/glu.h>
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h
 	<winresrc.h>
@@ -210,28 +211,9 @@
 1301111156 c:\program files (x86)\codeblocks\mingw\include\oleidl.h
 	<objfwd.h>
 
-881786480 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
-	<windows.h>
-	<GL/gl.h>
-	<GL/glu.h>
-
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
 	<stddef.h>
 	<GL/gl.h>
-
-1608556630 source:f:\mat_kul\semseter_3\grafkom\grafkom-iceskating-main\asset\asset-lapangan\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
-
-1608736286 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-lapangan\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
 
