@@ -1,6 +1,6 @@
 #include<GL/glut.h>
 int charaPosition[2] = {0,0};
-
+bool left, right;
 
 void makeChara() {
     glBegin(GL_QUADS); /* foot */
@@ -637,13 +637,20 @@ void makeChara() {
 void charPos() {
     glPushMatrix();
     glTranslated(charaPosition[0], charaPosition[1], 0);
-    glTranslated(60, 50, 0);
-        makeChara();
+
+    if (left == true){
+        glTranslated(60, 0, 0);
+        glScaled(1,1,0);
+    } else if (right == true){
+        glTranslated(120, 0, 0);
+        glScaled(-1,1,0);
+    }
+    makeChara();
+
     glPopMatrix();
 }
 
 void charMove(int data) {
-
     if(GetAsyncKeyState(VK_UP)) {
         charaPosition[1]++;
     }
@@ -652,9 +659,11 @@ void charMove(int data) {
     }
     if(GetAsyncKeyState(VK_LEFT)) {
         charaPosition[0]--;
+
     }
     if(GetAsyncKeyState(VK_RIGHT)) {
         charaPosition[0]++;
+
     }
 
     glutPostRedisplay();
@@ -664,7 +673,16 @@ void charMove(int data) {
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-        charPos();
+	charPos();
+
+    if(GetAsyncKeyState(VK_LEFT)){
+        left = true;
+        right = false;
+    }
+    if(GetAsyncKeyState(VK_RIGHT)){
+        right = true;
+        left = false;
+    }
 
 	glFlush();
 }
@@ -673,7 +691,7 @@ void myinit() {
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(0.0, 200.0, 0.0, 200.0);
+	gluOrtho2D(0.0, 400.0, 0.0, 400.0);
 }
 
 int main(int argc, char** argv) {
@@ -688,3 +706,4 @@ int main(int argc, char** argv) {
 	myinit();
 	glutMainLoop();
 }
+
