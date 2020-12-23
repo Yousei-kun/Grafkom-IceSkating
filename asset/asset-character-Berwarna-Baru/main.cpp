@@ -1,10 +1,31 @@
-#include <GL/gl.h>
-#include <GL/glu.h>
+/*
+ * GLUT Shapes Demo
+ *
+ * Written by Nigel Stewart November 2003
+ *
+ * This program is test harness for the sphere, cone
+ * and torus shapes in GLUT.
+ *
+ * Spinning wireframe and smooth shaded shapes are
+ * displayed until the ESC or q key is pressed.  The
+ * number of geometry stacks and slices can be adjusted
+ * using the + and - keys.
+ */
+#include<windows.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
-void displayMe(void){
-    glClear(GL_COLOR_BUFFER_BIT);
+#endif
+
+#include <stdlib.h>
+
+#include<GL/glut.h>
+
+void pinguin(){
+    //glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_POLYGON);/*sepatu kiri bawah*/
-    glColor3b(128,128,128);
+    glColor3ub(128,128,128);
     glVertex2f(11, 101);
 	glVertex2f(11, 100);
 	glVertex2f(18, 100);
@@ -12,7 +33,7 @@ void displayMe(void){
 	glEnd();
 
     glBegin(GL_POLYGON);/*sepatu kiri bawah 2*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(12, 102);
 	glVertex2f(12, 101);
 	glVertex2f(13, 101);
@@ -20,7 +41,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kiri bawah 3*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(15, 102);
 	glVertex2f(15, 101);
 	glVertex2f(16, 101);
@@ -28,7 +49,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kiri bawah 3*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(18, 102);
 	glVertex2f(18, 101);
 	glVertex2f(19, 101);
@@ -36,7 +57,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kiri bawah 4*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(11, 104);
 	glVertex2f(11, 102);
 	glVertex2f(17, 102);
@@ -44,7 +65,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kiri bawah 5 biru*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(11, 105);
 	glVertex2f(11, 104);
 	glVertex2f(12, 104);
@@ -52,7 +73,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kiri bawah 6 kuning*/
-    glColor3b(250,100,0);
+    glColor3ub(255,255,0);
     glVertex2f(11, 107);
 	glVertex2f(11, 105);
 	glVertex2f(12, 105);
@@ -60,7 +81,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(3, 102);
 	glVertex2f(3, 101);
 	glVertex2f(5, 101);
@@ -68,7 +89,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 2*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(2, 103);
 	glVertex2f(2, 102);
 	glVertex2f(4, 102);
@@ -76,7 +97,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 3*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(2, 108);
 	glVertex2f(2, 102);
 	glVertex2f(3, 102);
@@ -84,7 +105,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 4*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(3, 105);
 	glVertex2f(3, 104);
 	glVertex2f(5, 104);
@@ -92,7 +113,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 5*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(4, 106);
 	glVertex2f(4, 105);
 	glVertex2f(5, 105);
@@ -100,7 +121,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 6*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(3, 107);
 	glVertex2f(3, 106);
 	glVertex2f(6, 106);
@@ -108,7 +129,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 7*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(4, 108);
 	glVertex2f(4, 107);
 	glVertex2f(7, 107);
@@ -116,7 +137,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 8*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(5, 109);
 	glVertex2f(5, 106);
 	glVertex2f(6, 106);
@@ -124,7 +145,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 9 kuning*/
-    glColor3b(250,100,0);
+    glColor3ub(255,255,0);
     glVertex2f(6, 109);
 	glVertex2f(6, 108);
 	glVertex2f(8, 108);
@@ -132,7 +153,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*sepatu kanan bawah 10 kuning*/
-    glColor3b(250,100,0);
+    glColor3ub(255,255,0);
     glVertex2f(6, 110);
 	glVertex2f(6, 109);
 	glVertex2f(9, 109);
@@ -140,7 +161,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong putih */
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(4, 109);
 	glVertex2f(4, 108);
 	glVertex2f(5, 108);
@@ -148,7 +169,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong putih 2*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(3, 110);
 	glVertex2f(3, 109);
 	glVertex2f(4, 109);
@@ -156,7 +177,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(4, 110);
 	glVertex2f(4, 109);
 	glVertex2f(6, 109);
@@ -164,7 +185,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru 2*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(3, 113);
 	glVertex2f(3, 110);
 	glVertex2f(7, 110);
@@ -172,7 +193,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru 3*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(2, 114);
 	glVertex2f(2, 113);
 	glVertex2f(7, 113);
@@ -180,7 +201,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru 4*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(7, 112);
 	glVertex2f(7, 111);
 	glVertex2f(10, 111);
@@ -188,7 +209,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru 5*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(7, 111);
 	glVertex2f(7, 110);
 	glVertex2f(11, 110);
@@ -196,7 +217,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*bokong biru 6*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(9, 110);
 	glVertex2f(9, 109);
 	glVertex2f(12, 109);
@@ -204,7 +225,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(7, 108);
 	glVertex2f(7, 107);
 	glVertex2f(21, 107);
@@ -212,7 +233,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 2*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(8, 109);
 	glVertex2f(8, 108);
 	glVertex2f(16, 108);
@@ -220,7 +241,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 3*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(12, 110);
 	glVertex2f(12, 109);
 	glVertex2f(15, 109);
@@ -228,7 +249,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 4*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(11, 111);
 	glVertex2f(11, 110);
 	glVertex2f(16, 110);
@@ -236,7 +257,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 5*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(13, 112);
 	glVertex2f(13, 111);
 	glVertex2f(15, 111);
@@ -244,7 +265,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 6*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(17, 109);
 	glVertex2f(17, 108);
 	glVertex2f(22, 108);
@@ -252,7 +273,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 7*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(7, 108);
 	glVertex2f(7, 107);
 	glVertex2f(21, 107);
@@ -260,7 +281,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 8*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(18, 111);
 	glVertex2f(18, 109);
 	glVertex2f(23, 109);
@@ -268,7 +289,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 9*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(20, 113);
 	glVertex2f(20, 111);
 	glVertex2f(23, 111);
@@ -276,7 +297,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan putih 10*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(20, 114);
 	glVertex2f(20, 113);
 	glVertex2f(24, 113);
@@ -284,7 +305,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(16, 109);
 	glVertex2f(16, 108);
 	glVertex2f(17, 108);
@@ -292,7 +313,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 2*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(15, 110);
 	glVertex2f(15, 109);
 	glVertex2f(18, 109);
@@ -300,7 +321,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 3*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(16, 111);
 	glVertex2f(16, 110);
 	glVertex2f(18, 110);
@@ -308,7 +329,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 4*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(15, 112);
 	glVertex2f(15, 111);
 	glVertex2f(20, 111);
@@ -316,7 +337,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 5*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(16, 113);
 	glVertex2f(16, 112);
 	glVertex2f(20, 112);
@@ -324,7 +345,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah tua 6*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(16, 114);
 	glVertex2f(16, 113);
 	glVertex2f(20, 113);
@@ -332,7 +353,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 7*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(16, 116);
 	glVertex2f(16, 113);
 	glVertex2f(24, 114);
@@ -340,7 +361,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 8*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(14, 117);
 	glVertex2f(14, 116);
 	glVertex2f(24, 116);
@@ -348,7 +369,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah tua 9*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(10, 117);
 	glVertex2f(10, 116);
 	glVertex2f(14, 116);
@@ -356,7 +377,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah tua 10*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(10, 119);
 	glVertex2f(10, 117);
 	glVertex2f(12, 117);
@@ -364,7 +385,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*badan merah 11*/
-    glColor3b(1,1,1);
+    glColor3ub(255,0,0);
     glVertex2f(12, 118);
 	glVertex2f(12, 117);
 	glVertex2f(14, 117);
@@ -372,7 +393,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru muda*/
-    glColor3b(250,100,0);
+    glColor3ub(0,255,255);
     glVertex2f(14, 120);
 	glVertex2f(14, 117);
 	glVertex2f(15, 117);
@@ -380,7 +401,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru muda 2*/
-    glColor3b(250,100,0);
+    glColor3ub(0,255,255);
     glVertex2f(13, 119);
 	glVertex2f(13, 118);
 	glVertex2f(14, 118);
@@ -388,7 +409,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru tua*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(12, 119);
 	glVertex2f(12, 118);
 	glVertex2f(13, 118);
@@ -396,7 +417,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru tua 2*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(11, 120);
 	glVertex2f(11, 119);
 	glVertex2f(14, 119);
@@ -404,7 +425,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru tua 3*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(11, 121);
 	glVertex2f(11, 120);
 	glVertex2f(15, 120);
@@ -412,7 +433,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru tua 4*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,255);
     glVertex2f(12, 122);
 	glVertex2f(12, 121);
 	glVertex2f(15, 121);
@@ -420,7 +441,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru putih*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,0);
     glVertex2f(15, 120);
 	glVertex2f(15, 117);
 	glVertex2f(22, 117);
@@ -428,7 +449,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala biru putih 2*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,0);
     glVertex2f(15, 123);
 	glVertex2f(15, 120);
 	glVertex2f(24, 120);
@@ -436,7 +457,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala putih abu-abu 3*/
-    glColor3b(250,100,0);
+    glColor3ub(0,0,0);
     glVertex2f(17, 124);
 	glVertex2f(17, 123);
 	glVertex2f(24, 123);
@@ -444,7 +465,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala paruh kuning*/
-    glColor3b(250,100,0);
+    glColor3ub(250,255,0);
     glVertex2f(22, 120);
 	glVertex2f(22, 117);
 	glVertex2f(25, 117);
@@ -452,7 +473,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala paruh kuning 2*/
-    glColor3b(250,100,0);
+    glColor3ub(250,255,0);
     glVertex2f(25, 119);
 	glVertex2f(25, 116);
 	glVertex2f(26, 116);
@@ -460,7 +481,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala mata*/
-    glColor3b(1,1,1);
+    glColor3ub(1,1,1);
     glVertex2f(19, 123);
 	glVertex2f(19, 122);
 	glVertex2f(20, 122);
@@ -468,7 +489,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala mata 2*/
-    glColor3b(1,1,1);
+    glColor3ub(1,1,1);
     glVertex2f(18, 122);
 	glVertex2f(18, 120);
 	glVertex2f(19, 120);
@@ -476,7 +497,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala mata 3*/
-    glColor3b(1,1,1);
+    glColor3ub(1,1,1);
     glVertex2f(20, 122);
 	glVertex2f(20, 120);
 	glVertex2f(21, 120);
@@ -484,7 +505,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*kepala sekat kotak kecil*/
-    glColor3b(250,100,0);
+    glColor3ub(250,100,0);
     glVertex2f(16, 124);
 	glVertex2f(16, 123);
 	glVertex2f(17, 123);
@@ -492,7 +513,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi putih bawah*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(15, 126);
 	glVertex2f(15, 124);
 	glVertex2f(23, 124);
@@ -500,7 +521,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi putih bawah 2*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(12, 125);
 	glVertex2f(12, 122);
 	glVertex2f(15, 122);
@@ -508,7 +529,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi putih bawah 3*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(11, 124);
 	glVertex2f(11, 121);
 	glVertex2f(12, 121);
@@ -516,7 +537,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi putih bawah 4*/
-    glColor3b(250,100,0);
+    glColor3ub(1,1,1);
     glVertex2f(10, 123);
 	glVertex2f(10, 121);
 	glVertex2f(11, 121);
@@ -524,7 +545,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah tua*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(10, 129);
 	glVertex2f(10, 123);
 	glVertex2f(11, 123);
@@ -532,7 +553,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah tua 2*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(11, 129);
 	glVertex2f(11, 124);
 	glVertex2f(12, 124);
@@ -540,7 +561,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah tua 3*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(12, 129);
 	glVertex2f(12, 128);
 	glVertex2f(13, 128);
@@ -548,7 +569,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah tua 4*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(12, 126);
 	glVertex2f(12, 125);
 	glVertex2f(15, 125);
@@ -556,7 +577,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(12, 128);
 	glVertex2f(12, 126);
 	glVertex2f(22, 126);
@@ -564,7 +585,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah 2*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(13, 129);
 	glVertex2f(13, 128);
 	glVertex2f(20, 128);
@@ -572,7 +593,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah 3*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(13, 130);
 	glVertex2f(13, 129);
 	glVertex2f(17, 129);
@@ -580,7 +601,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi merah pucuk*/
-    glColor3b(250,100,0);
+    glColor3ub(250,0,0);
     glVertex2f(8, 128);
 	glVertex2f(8, 127);
 	glVertex2f(10, 127);
@@ -588,7 +609,7 @@ void displayMe(void){
 	glEnd();
 
 	glBegin(GL_POLYGON);/*topi putih pucuk*/
-    glColor3b(250,100,0);
+    glColor3ub(1.0,1.0,1.0);
     glVertex2f(7, 127);
 	glVertex2f(7, 125);
 	glVertex2f(9, 125);
@@ -597,15 +618,37 @@ void displayMe(void){
 	glFlush();
 	glutSwapBuffers();
 }
+void hadap(){
+    glPushMatrix();
+        glTranslatef(50,0,0);
+        pinguin();
+    glPopMatrix();
+}
 
-int main(int argc, char** argv){
+void displayMe(void){
+    glClear(GL_COLOR_BUFFER_BIT);
+    pinguin();
+    hadap();
+
+    glFlush();
+}
+
+
+void myinit() {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0, 200.0, 0.0, 200.0);
+}
+
+int main(int argc, char** argv) {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-	glutInitWindowSize(1368, 728);
-	glutInitWindowPosition(0,0);
-	glutCreateWindow("Hello world!");
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(600, 600);
+	glutInitWindowPosition(0, 0);
+	glutCreateWindow("pinguin");
 	glutDisplayFunc(displayMe);
-	gluOrtho2D(0, 200, 0, 200);
+
+	myinit();
 	glutMainLoop();
-	return 0;
 }
