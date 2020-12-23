@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1608532563 source:c:\users\bima\documents\code goblog\project\main.cpp
+1608724731 source:c:\users\bima\documents\github\grafkom-iceskating\bismillah-ice-skating\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdlib.h>
 	<GL/glut.h>
+	"batu.h"
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h
 	<winresrc.h>
@@ -221,24 +222,5 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1608556630 source:f:\mat_kul\semseter_3\grafkom\grafkom-iceskating-main\asset\asset-lapangan\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
-
-1608736286 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-lapangan\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
-
-1608557354 source:c:\users\bima\documents\github\grafkom-iceskating\asset\asset-lapangan\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<GL/glut.h>
+1608723189 c:\users\bima\documents\github\grafkom-iceskating\bismillah-ice-skating\batu.h
 

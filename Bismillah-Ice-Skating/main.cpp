@@ -11,7 +11,7 @@
  * number of geometry stacks and slices can be adjusted
  * using the + and - keys.
  */
-
+#include<windows.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -20,158 +20,525 @@
 
 #include <stdlib.h>
 
-static int slices = 16;
-static int stacks = 16;
+#include<GL/glut.h>
+//header
+#include "batu.h"
 
-/* GLUT callback Handlers */
+void segidelapan (float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4, float titikA5, float titikB5, float titikA6, float titikB6, float titikA7, float titikB7, float titikA8, float titikB8){
+    glBegin(GL_POLYGON);
 
-static void resize(int width, int height)
-{
-    const float ar = (float) width / (float) height;
+     glVertex2f(titikA1, titikB1);
+	glVertex2f(titikA2, titikB2);
+	glVertex2f(titikA3, titikB3);
+	glVertex2f(titikA4, titikB4);
+	glVertex2f(titikA5, titikB5);
+	glVertex2f(titikA6, titikB6);
+	glVertex2f(titikA7, titikB7);
+	glVertex2f(titikA8, titikB8);
 
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity() ;
+	glEnd();
 }
+void kotak (float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4){
+    glBegin(GL_QUADS);
 
-static void display(void)
-{
-    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
-    const double a = t*90.0;
+    glVertex2f(titikA1, titikB1);
+	glVertex2f(titikA2, titikB2);
+	glVertex2f(titikA3, titikB3);
+	glVertex2f(titikA4, titikB4);
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glColor3d(1,0,0);
-
-    glPushMatrix();
-        glTranslated(-2.4,1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutSolidSphere(1,slices,stacks);
-    glPopMatrix();
-
-    glPushMatrix();
-        glTranslated(0,1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutSolidCone(1,1,slices,stacks);
-    glPopMatrix();
-
-    glPushMatrix();
-        glTranslated(2.4,1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutSolidTorus(0.2,0.8,slices,stacks);
-    glPopMatrix();
-
-    glPushMatrix();
-        glTranslated(-2.4,-1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutWireSphere(1,slices,stacks);
-    glPopMatrix();
-
-    glPushMatrix();
-        glTranslated(0,-1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutWireCone(1,1,slices,stacks);
-    glPopMatrix();
-
-    glPushMatrix();
-        glTranslated(2.4,-1.2,-6);
-        glRotated(60,1,0,0);
-        glRotated(a,0,0,1);
-        glutWireTorus(0.2,0.8,slices,stacks);
-    glPopMatrix();
-
-    glutSwapBuffers();
+	glEnd();
 }
 
 
-static void key(unsigned char key, int x, int y)
-{
-    switch (key)
-    {
-        case 27 :
-        case 'q':
-            exit(0);
-            break;
+void batu (float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4, float titikA5, float titikB5, float titikA6, float titikB6){
+    glBegin(GL_POLYGON);
 
-        case '+':
-            slices++;
-            stacks++;
-            break;
+    glVertex2f(titikA1, titikB1);
+	glVertex2f(titikA2, titikB2);
+	glVertex2f(titikA3, titikB3);
+	glVertex2f(titikA4, titikB4);
+	glVertex2f(titikA5, titikB5);
+	glVertex2f(titikA6, titikB6);
+	glEnd();
+}
+void garistembok (float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4, float titikA5, float titikB5, float titikA6, float titikB6){
+    glLineWidth(5);
+    glBegin(GL_LINE_STRIP);
 
-        case '-':
-            if (slices>3 && stacks>3)
-            {
-                slices--;
-                stacks--;
-            }
-            break;
-    }
-
-    glutPostRedisplay();
+    glVertex2f(titikA1, titikB1);
+	glVertex2f(titikA2, titikB2);
+	glVertex2f(titikA3, titikB3);
+	glVertex2f(titikA4, titikB4);
+	glVertex2f(titikA5, titikB5);
+	glVertex2f(titikA6, titikB6);
+	glEnd();
+}
+void pojok(){
+    glColor3ub(40,200,200);
+    kotak(0,0, 40,0, 40,40, 0,40);
+}
+void dasar(){
+    glColor3ub(165,185,195);
+    kotak(0,0, 0,600, 600,600, 600,0);
+}
+void tembokbawahatas(){
+    glColor3ub(40,200,200);
+    batu(40,0, 40,35, 45,40, 75,40, 80,35, 80,0);
+    batu(40,600, 40,560, 45,555, 75,555, 80,560, 80,600);
 }
 
-static void idle(void)
-{
-    glutPostRedisplay();
+void pagarbawahatas (){
+    glColor3f(0,0,255);
+    garistembok(40,0, 40,35, 45,40, 75,40, 80,35, 80,0);
+    garistembok(40,600, 40,560, 45,555, 75,555, 80,560, 80,600);
 }
 
-const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 1.0f };
-const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_position[] = { 2.0f, 5.0f, 5.0f, 0.0f };
+void tembok(){
+    glColor3ub(40,200,200);
+    batu(0,40, 35,40, 40,45, 40,75, 35,80, 0,80);
+    batu(600,40 , 560,40, 555,45, 555,75, 560,80, 600,80);
+    //tembokhadap kanan tengah
+}
+void pagar(){
+    glColor3f(0,0,255);
+    garistembok(0,40, 35,40, 40,45, 40,75, 35,80, 0,80);
+    garistembok(600,40, 560,40, 555,45, 555,75, 560,80, 600,80);
+}
 
-const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
-const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
-const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat high_shininess[] = { 100.0f };
+void bata(){
+    glColor3ub(40,200,200);
+    segidelapan(5,0, 35,0, 40,5, 40,35, 35,40, 5,40, 0,35, 0,5);
+}
+void hiasanatasbawah(){
+    glPushMatrix();
+    glTranslatef(40,0,0);
+    hiasan();
+    glPopMatrix();
 
-/* Program entry point */
+    glPushMatrix();
+    glTranslatef(40,560,0);
+    hiasan();
+    glPopMatrix();
 
-int main(int argc, char *argv[])
-{
-    glutInit(&argc, argv);
-    glutInitWindowSize(640,480);
-    glutInitWindowPosition(10,10);
-    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
+}
 
-    glutCreateWindow("GLUT Shapes");
+void hiasankanankiri(){
+    glPushMatrix();
+    glTranslatef(0,40,0);
+    hiasan();
+    glPopMatrix();
 
-    glutReshapeFunc(resize);
-    glutDisplayFunc(display);
-    glutKeyboardFunc(key);
-    glutIdleFunc(idle);
+    glPushMatrix();
+    glTranslatef(560,40,0);
+    hiasan();
+    glPopMatrix();
+}
 
-    glClearColor(1,1,1,1);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+void rangkai(){
+    //pojokan
+    glPushMatrix();
+        pojok();
+    glPopMatrix();
 
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
+    glPushMatrix();
+        glTranslatef(0,560,0);
+        pojok();
+    glPopMatrix();
 
-    glEnable(GL_LIGHT0);
-    glEnable(GL_NORMALIZE);
-    glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_LIGHTING);
+    glPushMatrix();
+        glTranslatef(560,560,0);
+        pojok();
+    glPopMatrix();
 
-    glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    glPushMatrix();
+        glTranslatef(560,0,0);
+        pojok();
+    glPopMatrix();
 
-    glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+    //tembok kiri kanan
+    glPushMatrix();
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
 
-    glutMainLoop();
+    glPushMatrix();
+        glTranslatef(0,40,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
 
-    return EXIT_SUCCESS;
+    glPushMatrix();
+        glTranslatef(0,80,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,120,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,160,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,200,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,240,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,280,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,320,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,360,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,400,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,440,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(0,480,0);
+        tembok();
+        pagar();
+        hiasankanankiri();
+    glPopMatrix();
+    // tembok bawah atas
+    glPushMatrix();
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(40,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(80,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(160,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(200,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(240,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(280,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(320,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(360,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(400,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(440,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(480,0,0);
+        tembokbawahatas();
+        pagarbawahatas();
+        hiasanatasbawah();
+    glPopMatrix();
+}
+void rintangan(){
+    //1
+    glPushMatrix();
+        glTranslatef(40,120,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(40,280,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //2
+    glPushMatrix();
+        glTranslatef(80,40,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(80,200,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(80,360,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //3
+    glPushMatrix();
+        glTranslatef(120,40,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,80,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,120,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,160,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,200,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,240,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,280,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,320,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(120,360,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //4
+    glPushMatrix();
+        glTranslatef(160,40,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(160,160,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(160,480,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //5
+    glPushMatrix();
+        glTranslatef(200,280,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //6
+    glPushMatrix();
+        glTranslatef(240,280,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //7
+    glPushMatrix();
+        glTranslatef(280,400,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //8
+    glPushMatrix();
+        glTranslatef(320,320,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(320,520,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //9
+    //10
+    glPushMatrix();
+        glTranslatef(400,480,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //11
+    glPushMatrix();
+        glTranslatef(440,40,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(440,80,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //12
+    glPushMatrix();
+        glTranslatef(480,240,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(480,400,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+    //13
+    glPushMatrix();
+        glTranslatef(520,80,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslatef(520,200,0);
+        bata();
+        hiasan();
+    glPopMatrix();
+}
+
+
+static void display(void){
+    glClear(GL_COLOR_BUFFER_BIT);
+    dasar();
+    rangkai();
+    rintangan();
+    glFlush();
+}
+
+
+void myinit() {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0, 600.0, 0.0, 600.0);
+}
+
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(600,600);
+	glutInitWindowPosition(0, 0);
+	glutCreateWindow("Lapangan");
+	glutDisplayFunc(display);
+
+	myinit();
+	glutMainLoop();
 }
