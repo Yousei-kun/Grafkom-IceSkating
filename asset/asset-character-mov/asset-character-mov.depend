@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
+<<<<<<< Updated upstream
 1608169130 source:e:\semester 3\grafkom\projek\grafkom-iceskating\grafkom-iceskating\asset\asset-character-mov\main.cpp
+=======
+1608534361 source:c:\users\bima\documents\github\grafkom-iceskating\asset\asset-character-mov\main.cpp
+>>>>>>> Stashed changes
 	<GL/glut.h>
 
 881786480 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
@@ -217,6 +221,9 @@
 	<stddef.h>
 	<GL/gl.h>
 
+<<<<<<< Updated upstream
 1607419275 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-character-mov\main.cpp
 	<GL/glut.h>
 
+=======
+>>>>>>> Stashed changes
