@@ -8,12 +8,12 @@
 #include <stdlib.h>
 
 #include<GL/glut.h>
- //header
+//header
 #include "batu.h"
 #include "chara.h"
 #include <iostream>
 
-int charaPosition[2] = { 0,0 };
+int charaPosition[2] = { 0,40 };
 int stones[29][2];
 int index = 0;
 bool left, right;
@@ -338,9 +338,9 @@ void addStones(int numx, int numy) {
 void rintangan() {
 	//1
 	glPushMatrix();
-		glTranslatef(40, 120, 0);
-		bata();
-		hiasan();
+	glTranslatef(40, 120, 0);
+	bata();
+	hiasan();
 	glPopMatrix();
 	stones[0][0] = 40;
 	stones[0][1] = 120;
@@ -578,16 +578,16 @@ void charPos() {
 	glPushMatrix();
 	glTranslated(charaPosition[0], charaPosition[1], 0);
 
-	glBegin(GL_POLYGON);
-		glColor3f(1, 0, 0);
-		glVertex2f(0, 0);
-		glVertex2f(40, 0);
-		glVertex2f(40, 40);
-		glVertex2f(0, 40);
-	glEnd();
+	//glBegin(GL_POLYGON);
+	//glColor3f(1, 0, 0);
+	//glVertex2f(0, 0);
+	//glVertex2f(40, 0);
+	//glVertex2f(40, 40);
+	//glVertex2f(0, 40);
+	//glEnd();
 
-//	std::cout << charaPosition[0];
-//	std::cout << charaPosition[1] << "\n";
+		//std::cout << charaPosition[0];
+		//std::cout << charaPosition[1] << "\n";
 
 	if (left == true) {
 		glTranslated(0, 0, 0);
@@ -609,72 +609,6 @@ void charMove2(int data)
 	glutPostRedisplay();
 	glutTimerFunc(100, charMove2, 0);
 }
-//
-//void charMove(int data) {
-//	/*if (GetAsyncKeyState(VK_UP)) {
-//		stop = false;
-//		while (stop == false) {
-//			charaPosition[1]++;
-//			for (int i = 0; i <= 29; i++) {
-//				if (charaPosition[1] < stones[i][1]) {
-//					stop = true;
-//				}
-//			}
-//		}
-//
-//	}*/
-//	if (GetAsyncKeyState(VK_UP)) {
-//		stop = false;
-//		while (stop == false) {
-//			charaPosition[1]+=40;
-//			for (int i = 0; i <= 29; i++) {
-//				if ((charaPosition[1] + 40 > stones[i][0]) && (charaPosition[0] + 40 > stones[i][1])) {
-//					stop = true;
-//				}
-//			}
-//		}
-//	}
-//	else if (GetAsyncKeyState(VK_DOWN)) {
-//		stop = false;
-//		while (stop == false) {
-//			charaPosition[1]-=40;
-//			for (int i = 0; i <= 29; i++) {
-//				if ((charaPosition[0] - 40 > stones[i][0]) && (charaPosition[1] - 40 > stones[i][1])) {
-//					stop = true;
-//				}
-//			}
-//		}
-//	}
-//	else if (GetAsyncKeyState(VK_LEFT)) {
-//		stop = false;
-//		while (stop == false) {
-//			charaPosition[0]--;
-//			for (int i = 0; i <= 29; i++) {
-//				if ((charaPosition[0] - 40 > stones[i][0]) && (charaPosition[1] - 40 > stones[i][1])) {
-//					stop = true;
-//				}
-//			}
-//		}
-//
-//	}
-//	else if (GetAsyncKeyState(VK_RIGHT)) {
-//		stop = false;
-//		while (stop == false) {
-//			charaPosition[0]++;
-//			for (int i = 0; i <= 29; i++) {
-//				if ((charaPosition[0] + 40 > stones[i][0]) && (charaPosition[1] + 40 > stones[i][1])) {
-//					stop = true;
-//				}
-//			}
-//		}
-//
-//	}
-//
-//	glutPostRedisplay();
-//	glutTimerFunc(100, charMove, 0);
-//}
-//
-
 void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
 	dasar();
@@ -698,43 +632,107 @@ void pantauGerakan(int key, int x, int y)
 {
 	if (key == GLUT_KEY_UP)
 	{
-		charaPosition[1] += 40;
-	}
-
-	if (key == GLUT_KEY_DOWN)
-	{
-		charaPosition[1] -= 40;
-	}
-
-	if (key == GLUT_KEY_RIGHT)
-	{
-//		charaPosition[0] += 40;
-		std::cout << charaPosition[0] << "\n" << charaPosition[1] << std::endl;
 		stop = false;
 		while (stop == false) {
-			for (int i = 0; i <= 29; i++) {
-				if ((charaPosition[0] + 40 > stones[i][0]) && (charaPosition[1] + 1 > stones[i][1])) {
+			for (int i = 0; i <= 33; i++) {
+				if (charaPosition[1] > stones[i][1]) {
+					continue;
+				}
+
+				else if ((charaPosition[1] + 50 > stones[i][1]) && (charaPosition[0] == stones[i][0])) {
 					stop = true;
+					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
 					break;
-				} else
-				{
-//					std::cout << "belum nabrak\n";
+
 				}
 			}
 			if (stop == false) {
-				charaPosition[0] += 10;
-				std::cout << "belum nabrak\n";
+				if (charaPosition[1] > 510) {
+					stop = true;
+					break;
+				}
+				charaPosition[1] += 10;
 			}
 
 		}
-		std::cout << "nabrak dong\n" ;
 	}
 
-	if (key == GLUT_KEY_LEFT)
+	else if (key == GLUT_KEY_DOWN)
 	{
-		charaPosition[0] -= 40;
+		stop = false;
+		while (stop == false) {
+			for (int i = 0; i <= 33; i++) {
+				if (charaPosition[1] < stones[i][1] + 40) {
+					continue;
+				}
+
+				else if ((charaPosition[1] - 10 < stones[i][1] + 40) && (charaPosition[0] == stones[i][0])) {
+					stop = true;
+					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
+					break;
+
+				}
+			}
+			if (stop == false) {
+				if (charaPosition[1] < 50) {
+					stop = true;
+					break;
+				}
+				charaPosition[1] -= 10;
+			}
+		}
 	}
 
+	else if (key == GLUT_KEY_RIGHT)
+	{
+		stop = false;
+		while (stop == false) {
+			for (int i = 0; i <= 33; i++) {
+				if (charaPosition[0] > stones[i][0]) {
+					continue;
+				}
+
+				else if ((charaPosition[0] + 50 > stones[i][0]) && (charaPosition[1] == stones[i][1])) {
+					stop = true;
+					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
+					break;
+				}
+			}
+			if (stop == false) {
+				if (charaPosition[0] > 510) {
+					stop = true;
+					break;
+				}
+				charaPosition[0] += 10;
+			}
+		}
+	}
+
+	else if (key == GLUT_KEY_LEFT)
+	{
+		stop = false;
+		while (stop == false) {
+			for (int i = 0; i <= 33; i++) {
+				if (charaPosition[0] < stones[i][0] + 40) {
+					continue;
+				}
+
+				else if ((charaPosition[0]-10 < stones[i][0]+40) && (charaPosition[1] == stones[i][1])) {
+					stop = true;
+					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
+					break;
+
+				}
+			}
+			if (stop == false) {
+				if (charaPosition[0] < 50) {
+					stop = true;
+					break;
+				}
+				charaPosition[0] -= 10;
+			}
+		}
+	}
 }
 
 void myinit() {
@@ -749,7 +747,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(600, 600);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("Lapangan");
+	glutCreateWindow("Ice Skating");
 	glutDisplayFunc(display);
 	glutSpecialFunc(pantauGerakan);
 	glutTimerFunc(1, charMove2, 0);
