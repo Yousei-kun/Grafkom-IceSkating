@@ -11,11 +11,15 @@
  //header
 #include "batu.h"
 #include "chara.h"
+#include <iostream>
 
 int charaPosition[2] = { 0,40 };
-int stones[100][100];
+int stones[29][2];
+int index = 0;
 bool left, right;
 bool stop;
+
+
 
 void segidelapan(float titikA1, float titikB1, float titikA2, float titikB2, float titikA3, float titikB3, float titikA4, float titikB4, float titikA5, float titikB5, float titikA6, float titikB6, float titikA7, float titikB7, float titikA8, float titikB8) {
 	glBegin(GL_POLYGON);
@@ -324,6 +328,13 @@ void rangkai() {
 	hiasanatasbawah();
 	glPopMatrix();
 }
+
+void addStones(int numx, int numy) {
+	stones[index][0] = numx;
+	stones[index][1] = numy;
+	index += 1;
+}
+
 void rintangan() {
 	//1
 	glPushMatrix();
@@ -339,126 +350,171 @@ void rintangan() {
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[1][0] = 40;
+	stones[1][1] = 280;
+
 	//2
 	glPushMatrix();
 	glTranslatef(80, 40, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[2][0] = 80;
+	stones[2][1] = 40;
 
 	glPushMatrix();
 	glTranslatef(80, 200, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[3][0] = 80;
+	stones[3][1] = 200;
 
 	glPushMatrix();
 	glTranslatef(80, 360, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[4][0] = 80;
+	stones[4][1] = 360;
+
 	//3
 	glPushMatrix();
 	glTranslatef(120, 40, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	addStones(120, 40);
+	stones[5][0] = 120;
+	stones[5][1] = 40;
 
 	glPushMatrix();
 	glTranslatef(120, 80, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[6][0] = 120;
+	stones[6][1] = 80;
 
 	glPushMatrix();
 	glTranslatef(120, 120, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[7][0] = 120;
+	stones[7][1] = 120;
 
 	glPushMatrix();
 	glTranslatef(120, 160, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[8][0] = 120;
+	stones[8][1] = 160;
 
 	glPushMatrix();
 	glTranslatef(120, 200, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[9][0] = 120;
+	stones[9][1] = 200;
 
 	glPushMatrix();
 	glTranslatef(120, 240, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[10][0] = 120;
+	stones[10][1] = 240;
 
 	glPushMatrix();
 	glTranslatef(120, 280, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[11][0] = 120;
+	stones[11][1] = 280;
 
 	glPushMatrix();
 	glTranslatef(120, 320, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[12][0] = 120;
+	stones[12][1] = 320;
 
 	glPushMatrix();
 	glTranslatef(120, 360, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[13][0] = 120;
+	stones[13][1] = 360;
 	//4
 	glPushMatrix();
 	glTranslatef(160, 40, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[14][0] = 160;
+	stones[14][1] = 40;
 
 	glPushMatrix();
 	glTranslatef(160, 160, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[15][0] = 160;
+	stones[15][1] = 160;
 
 	glPushMatrix();
 	glTranslatef(160, 480, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[16][0] = 160;
+	stones[16][1] = 480;
 	//5
 	glPushMatrix();
 	glTranslatef(200, 280, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[17][0] = 200;
+	stones[17][1] = 280;
 	//6
 	glPushMatrix();
 	glTranslatef(240, 280, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[18][0] = 240;
+	stones[18][1] = 280;
 	//7
 	glPushMatrix();
 	glTranslatef(280, 400, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[19][0] = 280;
+	stones[19][1] = 400;
 	//8
 	glPushMatrix();
 	glTranslatef(320, 320, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[20][0] = 320;
+	stones[20][1] = 320;
 
 	glPushMatrix();
 	glTranslatef(320, 520, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[21][0] = 320;
+	stones[21][1] = 520;
 	//9
 	//10
 	glPushMatrix();
@@ -466,42 +522,56 @@ void rintangan() {
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[22][0] = 400;
+	stones[22][1] = 480;
 	//11
 	glPushMatrix();
 	glTranslatef(440, 40, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[23][0] = 440;
+	stones[23][1] = 40;
 
 	glPushMatrix();
 	glTranslatef(440, 80, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[24][0] = 440;
+	stones[24][1] = 80;
 	//12
 	glPushMatrix();
 	glTranslatef(480, 240, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[25][0] = 480;
+	stones[25][1] = 240;
 
 	glPushMatrix();
 	glTranslatef(480, 400, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[26][0] = 480;
+	stones[26][1] = 400;
 	//13
 	glPushMatrix();
 	glTranslatef(520, 80, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[27][0] = 520;
+	stones[27][1] = 80;
 
 	glPushMatrix();
 	glTranslatef(520, 200, 0);
 	bata();
 	hiasan();
 	glPopMatrix();
+	stones[28][0] = 520;
+	stones[28][1] = 200;
 }
 
 void charPos() {
@@ -511,10 +581,13 @@ void charPos() {
 	glBegin(GL_POLYGON);
 		glColor3f(1, 0, 0);
 		glVertex2f(0, 0);
-		glVertex2f(38, 0);
-		glVertex2f(38, 38);
-		glVertex2f(0, 38);
+		glVertex2f(40, 0);
+		glVertex2f(40, 40);
+		glVertex2f(0, 40);
 	glEnd();
+
+	std::cout << charaPosition[0];
+	std::cout << charaPosition[1] << "\n";
 
 	if (left == true) {
 		glTranslated(0, 0, 0);
@@ -530,30 +603,67 @@ void charPos() {
 
 
 void charMove(int data) {
-	if (GetAsyncKeyState(VK_UP)) {
+	/*if (GetAsyncKeyState(VK_UP)) {
 		stop = false;
 		while (stop == false) {
-			charaPosition[1] ++;
-			if (charaPosition[1] > 520) {
-				stop = true;
+			charaPosition[1]++;
+			for (int i = 0; i <= 29; i++) {
+				if (charaPosition[1] < stones[i][1]) {
+					stop = true;
+				}
 			}
 		}
 		
+	}*/
+	if (GetAsyncKeyState(VK_UP)) {
+		stop = false;
+		while (stop == false) {
+			charaPosition[1]+=40;
+			for (int i = 0; i <= 29; i++) {
+				if ((charaPosition[1] + 40 > stones[i][0]) && (charaPosition[0] + 40 > stones[i][1])) {
+					stop = true;
+				}
+			}
+		}
 	}
-	if (GetAsyncKeyState(VK_DOWN)) {
-		charaPosition[1] --;
+	else if (GetAsyncKeyState(VK_DOWN)) {
+		stop = false;
+		while (stop == false) {
+			charaPosition[1]-=40;
+			for (int i = 0; i <= 29; i++) {
+				if ((charaPosition[0] - 40 > stones[i][0]) && (charaPosition[1] - 40 > stones[i][1])) {
+					stop = true;
+				}
+			}
+		}
 	}
-	if (GetAsyncKeyState(VK_LEFT)) {
-		charaPosition[0]--;
+	else if (GetAsyncKeyState(VK_LEFT)) {
+		stop = false;
+		while (stop == false) {
+			charaPosition[0]--;
+			for (int i = 0; i <= 29; i++) {
+				if ((charaPosition[0] - 40 > stones[i][0]) && (charaPosition[1] - 40 > stones[i][1])) {
+					stop = true;
+				}
+			}
+		}
 
 	}
-	if (GetAsyncKeyState(VK_RIGHT)) {
-		charaPosition[0]++;
+	else if (GetAsyncKeyState(VK_RIGHT)) {
+		stop = false;
+		while (stop == false) {
+			charaPosition[0]++;
+			for (int i = 0; i <= 29; i++) {
+				if ((charaPosition[0] + 40 > stones[i][0]) && (charaPosition[1] + 40 > stones[i][1])) {
+					stop = true;
+				}
+			}
+		}
 
 	}
 
 	glutPostRedisplay();
-	glutTimerFunc(300, charMove, 0);
+	glutTimerFunc(100, charMove, 0);
 }
 
 void display(void) {
