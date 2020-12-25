@@ -1,6 +1,5 @@
-#include<GL/glut.h>
-int charaPosition[2] = {0,0};
-bool left, right;
+#ifndef CHARA_H_INCLUDED
+#define CHARA_H_INCLUDED
 
 void makeChara() {
     glBegin(GL_QUADS); /* foot */
@@ -634,76 +633,14 @@ void makeChara() {
 
 }
 
-void charPos() {
-    glPushMatrix();
-    glTranslated(charaPosition[0], charaPosition[1], 0);
-
-    if (left == true){
-        glTranslated(60, 0, 0);
-        glScaled(1,1,0);
-    } else if (right == true){
-        glTranslated(120, 0, 0);
-        glScaled(-1,1,0);
-    }
-    makeChara();
-
-    glPopMatrix();
+void scale_chara(void) {
+	glScalef(0.35, 0.35, 0);
+	glTranslated(15, 0, 0);
+	makeChara();
+}
+void chara() {
+	scale_chara();
 }
 
-void charMove(int data) {
-    if(GetAsyncKeyState(VK_UP)) {
-        charaPosition[1]++;
-    }
-    if(GetAsyncKeyState(VK_DOWN)) {
-        charaPosition[1]--;
-    }
-    if(GetAsyncKeyState(VK_LEFT)) {
-        charaPosition[0]--;
-
-    }
-    if(GetAsyncKeyState(VK_RIGHT)) {
-        charaPosition[0]++;
-
-    }
-
-    glutPostRedisplay();
-    glutTimerFunc(1, charMove, 0);
-}
-
-void display() {
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	charPos();
-
-    if(GetAsyncKeyState(VK_LEFT)){
-        left = true;
-        right = false;
-    }
-    if(GetAsyncKeyState(VK_RIGHT)){
-        right = true;
-        left = false;
-    }
-
-	glFlush();
-}
-
-void myinit() {
-	glClearColor(1.0, 1.0, 1.0, 1.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0.0, 400.0, 0.0, 400.0);
-}
-
-int main(int argc, char** argv) {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(600, 600);
-	glutInitWindowPosition(0, 0);
-	glutCreateWindow("Sample");
-	glutDisplayFunc(display);
-	glutTimerFunc(1,charMove,0);
-
-	myinit();
-	glutMainLoop();
-}
+#endif // CHARA_H_INCLUDED
 
