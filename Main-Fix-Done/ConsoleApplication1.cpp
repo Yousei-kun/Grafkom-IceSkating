@@ -13,7 +13,7 @@
 #include "chara.h"
 #include <iostream>
 
-int charaPosition[2] = { 0,40 };
+int charaPosition[2] = { 40,40 };
 int stones[29][2];
 int index = 0;
 bool left, right;
@@ -237,6 +237,14 @@ void rangkai() {
 	pagar();
 	hiasankanankiri();
 	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(0, 0, 0);
+	tembok();
+	pagar();
+	hiasankanankiri();
+	glPopMatrix();
+
 	// tembok bawah atas
 	glPushMatrix();
 	tembokbawahatas();
@@ -327,6 +335,7 @@ void rangkai() {
 	pagarbawahatas();
 	hiasanatasbawah();
 	glPopMatrix();
+
 }
 
 void addStones(int numx, int numy) {
@@ -577,17 +586,6 @@ void rintangan() {
 void charPos() {
 	glPushMatrix();
 	glTranslated(charaPosition[0], charaPosition[1], 0);
-
-	//glBegin(GL_POLYGON);
-	//glColor3f(1, 0, 0);
-	//glVertex2f(0, 0);
-	//glVertex2f(40, 0);
-	//glVertex2f(40, 40);
-	//glVertex2f(0, 40);
-	//glEnd();
-
-		//std::cout << charaPosition[0];
-		//std::cout << charaPosition[1] << "\n";
 
 	if (left == true) {
 		glTranslated(0, 0, 0);
