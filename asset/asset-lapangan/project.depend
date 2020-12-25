@@ -228,6 +228,7 @@
 	<stdlib.h>
 	<GL/glut.h>
 
+<<<<<<< Updated upstream
 1608736286 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\asset\asset-lapangan\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
@@ -235,6 +236,8 @@
 	<stdlib.h>
 	<GL/glut.h>
 
+=======
+>>>>>>> Stashed changes
 1608557354 source:c:\users\bima\documents\github\grafkom-iceskating\asset\asset-lapangan\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
