@@ -224,3 +224,21 @@
 
 1608723189 c:\users\bima\documents\github\grafkom-iceskating\bismillah-ice-skating\batu.h
 
+1608947687 source:d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\bismillah-ice-skating\main.cpp
+	<windows.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<GL/glut.h>
+	"batu.h"
+	"chara.h"
+	"menu.h"
+	<iostream>
+
+1608905359 d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\bismillah-ice-skating\batu.h
+
+1608905359 d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\bismillah-ice-skating\chara.h
+
+1608948164 d:\_kuliah\_semester 3\grafika komputer\grafkom-iceskating\bismillah-ice-skating\menu.h
+	<GL/glut.h>
+

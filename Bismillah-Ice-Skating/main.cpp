@@ -11,6 +11,7 @@
 //header
 #include "batu.h"
 #include "chara.h"
+#include "menu.h"
 #include <iostream>
 
 int charaPosition[2] = { 0,40 };
@@ -18,6 +19,7 @@ int stones[29][2];
 int index = 0;
 bool left, right;
 bool stop;
+bool menuAwal;
 
 
 
@@ -611,10 +613,16 @@ void charMove2(int data)
 }
 void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
-	dasar();
-	rangkai();
-	rintangan();
-	charPos();
+
+	if (menuAwal){
+        dasar();
+        rangkai();
+        rintangan();
+        charPos();
+	} else {
+        tampilanMenu();
+	}
+
 
 	if (GetAsyncKeyState(VK_LEFT)) {
 		left = true;
@@ -733,6 +741,11 @@ void pantauGerakan(int key, int x, int y)
 			}
 		}
 	}
+
+    if(GLUT_KEY_F1){
+        menuAwal = TRUE;
+    }
+
 }
 
 void myinit() {
@@ -750,6 +763,7 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Ice Skating");
 	glutDisplayFunc(display);
 	glutSpecialFunc(pantauGerakan);
+	//glutKeyboardFunc(menuAwal);
 	glutTimerFunc(1, charMove2, 0);
 	myinit();
 	glutMainLoop();
