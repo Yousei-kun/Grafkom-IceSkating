@@ -11,6 +11,8 @@
 //header
 #include "batu.h"
 #include "chara.h"
+#include "menu.h"
+#include "gameover.h"
 #include <iostream>
 
 int charaPosition[2] = { 40,40 };
@@ -18,6 +20,8 @@ int stones[29][2];
 int index = 0;
 bool left, right;
 bool stop;
+bool menuAwal;
+bool win;
 
 
 
@@ -155,6 +159,13 @@ void rangkai() {
 	//tembok kiri kanan - revisi Ivan 24/20
 
 	glPushMatrix();
+	glTranslatef(0, 0, 0);
+	tembok();
+	pagar();
+	hiasankanankiri();
+	glPopMatrix();
+
+	glPushMatrix();
 	glTranslatef(0, 40, 0);
 	tembok();
 	pagar();
@@ -237,14 +248,6 @@ void rangkai() {
 	pagar();
 	hiasankanankiri();
 	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0, 0, 0);
-	tembok();
-	pagar();
-	hiasankanankiri();
-	glPopMatrix();
-
 	// tembok bawah atas
 	glPushMatrix();
 	tembokbawahatas();
@@ -335,7 +338,6 @@ void rangkai() {
 	pagarbawahatas();
 	hiasanatasbawah();
 	glPopMatrix();
-
 }
 
 void addStones(int numx, int numy) {
@@ -580,12 +582,31 @@ void rintangan() {
 	glPopMatrix();
 	stones[28][0] = 520;
 	stones[28][1] = 200;
+
+	/*glPushMatrix();
+	glTranslatef(520, 40, 0);
+	bata();
+	hiasan();
+	glPopMatrix();
+	stones[29][0] = 520;
+	stones[29][1] = 40;*/
 }
 
 
 void charPos() {
 	glPushMatrix();
 	glTranslated(charaPosition[0], charaPosition[1], 0);
+
+	//glBegin(GL_POLYGON);
+	//glColor3f(1, 0, 0);
+	//glVertex2f(0, 0);
+	//glVertex2f(40, 0);
+	//glVertex2f(40, 40);
+	//glVertex2f(0, 40);
+	//glEnd();
+
+		//std::cout << charaPosition[0];
+		//std::cout << charaPosition[1] << "\n";
 
 	if (left == true) {
 		glTranslated(0, 0, 0);
@@ -609,10 +630,20 @@ void charMove2(int data)
 }
 void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
-	dasar();
-	rangkai();
-	rintangan();
-	charPos();
+
+	if (menuAwal) {
+		dasar();
+		rangkai();
+		rintangan();
+		charPos();
+		if (win == true) {
+			displayGameOver();
+		}
+	}
+	else {
+		tampilanMenu();
+	}
+
 
 	if (GetAsyncKeyState(VK_LEFT)) {
 		left = true;
@@ -639,7 +670,6 @@ void pantauGerakan(int key, int x, int y)
 
 				else if ((charaPosition[1] + 50 > stones[i][1]) && (charaPosition[0] == stones[i][0])) {
 					stop = true;
-					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
 					break;
 
 				}
@@ -666,7 +696,6 @@ void pantauGerakan(int key, int x, int y)
 
 				else if ((charaPosition[1] - 10 < stones[i][1] + 40) && (charaPosition[0] == stones[i][0])) {
 					stop = true;
-					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
 					break;
 
 				}
@@ -692,7 +721,7 @@ void pantauGerakan(int key, int x, int y)
 
 				else if ((charaPosition[0] + 50 > stones[i][0]) && (charaPosition[1] == stones[i][1])) {
 					stop = true;
-					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
+					
 					break;
 				}
 			}
@@ -700,6 +729,9 @@ void pantauGerakan(int key, int x, int y)
 				if (charaPosition[0] > 510) {
 					stop = true;
 					break;
+				}
+				else if (charaPosition[0] > 500 && charaPosition[1] == 40) {
+					win = true;
 				}
 				charaPosition[0] += 10;
 			}
@@ -715,9 +747,8 @@ void pantauGerakan(int key, int x, int y)
 					continue;
 				}
 
-				else if ((charaPosition[0]-10 < stones[i][0]+40) && (charaPosition[1] == stones[i][1])) {
+				else if ((charaPosition[0] - 10 < stones[i][0] + 40) && (charaPosition[1] == stones[i][1])) {
 					stop = true;
-					std::cout << "x" << stones[i][0] << "\n" << "y" << stones[i][1] << std::endl;
 					break;
 
 				}
@@ -731,6 +762,12 @@ void pantauGerakan(int key, int x, int y)
 			}
 		}
 	}
+
+
+	if (GLUT_KEY_F1) {
+		menuAwal = TRUE;
+	}
+
 }
 
 void myinit() {
@@ -748,6 +785,7 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Ice Skating");
 	glutDisplayFunc(display);
 	glutSpecialFunc(pantauGerakan);
+	//glutKeyboardFunc(menuAwal);
 	glutTimerFunc(1, charMove2, 0);
 	myinit();
 	glutMainLoop();

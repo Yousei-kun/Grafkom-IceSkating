@@ -1,3 +1,6 @@
+#ifndef GAMEOVER_H_INCLUDED
+#define GAMEOVER_H_INCLUDED
+
 #include<GL/glut.h>
 
 void bg() {
@@ -121,10 +124,11 @@ void over (){
     glEnd();
     glFlush();
 }
-static void display(void){
+void displayGameOver(void){
     bg();
     garis();
     game();
     over();
 }
 
+#endif // GAMEOVER_H_INCLUDED
